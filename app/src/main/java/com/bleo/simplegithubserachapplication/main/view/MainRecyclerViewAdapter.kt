@@ -30,7 +30,6 @@ class MainRecyclerViewAdapter: RecyclerView.Adapter<MainRecyclerViewViewHolder>(
 
 }
 
-
 class MainRecyclerViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(model: GithubRepositoryModel) {
         with(itemView) {
