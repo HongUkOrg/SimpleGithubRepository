@@ -1,2 +1,2 @@
 # SimpleGithubRepository
-simple application 'searching GitHub repository'
+simple GitHub repository application using Rx
