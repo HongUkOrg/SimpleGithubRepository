@@ -1,6 +1,5 @@
 package com.bleo.simplegithubserachapplication.main
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.bleo.simplegithubserachapplication.main.model.GithubRepositoryModel
 import com.bleo.simplegithubserachapplication.main.network.MainRepository
@@ -14,15 +13,14 @@ class MainViewModel : ViewModel() {
     private val mainRepository: MainRepository = MainRepository()
     private val disposable: CompositeDisposable = CompositeDisposable()
     private var searchText = ""
+
     val githubItemRelay: BehaviorRelay<List<GithubRepositoryModel>> = BehaviorRelay.createDefault(emptyList())
 
-    fun searchRepo() {
+    fun searchRepositories() {
         mainRepository.searchGithubRepos(searchText)
-            .subscribe({ models ->
+            .subscribe { models ->
                 githubItemRelay.accept(models)
-            }, {
-                Log.e("bleo", "searchRepo: ERROR $it")
-            })
+            }
             .addTo(disposable)
     }
 

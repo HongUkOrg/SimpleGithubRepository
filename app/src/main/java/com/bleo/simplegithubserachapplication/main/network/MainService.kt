@@ -1,7 +1,6 @@
 package com.bleo.simplegithubserachapplication.main.network
 
 import com.google.gson.GsonBuilder
-import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

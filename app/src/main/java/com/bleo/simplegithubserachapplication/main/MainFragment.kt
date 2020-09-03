@@ -1,7 +1,6 @@
 package com.bleo.simplegithubserachapplication.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -59,25 +58,23 @@ class MainFragment : Fragment() {
             .filter { it.isEmpty() == false }
             .subscribe {
                 viewModel.searchTextChanged(it)
-                viewModel.searchRepo()
+                viewModel.searchRepositories()
             }
             .addTo(disposable)
 
         searchBtn
             .clicks()
             .subscribe {
-                viewModel.searchRepo()
+                viewModel.searchRepositories()
             }
             .addTo(disposable)
 
         viewModel
             .githubItemRelay
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
+            .subscribe {
                 recyclerViewAdapter.items = it
-            }, {
-                Log.e("bleo", "bind: error $it")
-            })
+            }
             .addTo(disposable)
 
     }
