@@ -78,6 +78,12 @@ class MainFragment : Fragment() {
             }, {
                 Log.e("bleo", "bind: error $it")
             })
+            .addTo(disposable)
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable.dispose()
     }
 }
