@@ -41,15 +41,22 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        setup()
+        setUp()
         bind()
     }
 
-    private fun setup() {
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable.dispose()
+    }
+
+    // MARK: - SetUp
+    private fun setUp() {
         githubRecyclerView.adapter = recyclerViewAdapter
         githubRecyclerView.layoutManager = LinearLayoutManager(context)
     }
 
+    // MARK: - Bind
     private fun bind() {
 
         searchEditText
@@ -77,10 +84,5 @@ class MainFragment : Fragment() {
             }
             .addTo(disposable)
 
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        disposable.dispose()
     }
 }

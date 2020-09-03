@@ -1,4 +1,4 @@
-package com.bleo.simplegithubserachapplication.main.network
+package com.bleo.simplegithubserachapplication.network
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-object MainService {
+object TempService {
 
     val gson =
         GsonBuilder()

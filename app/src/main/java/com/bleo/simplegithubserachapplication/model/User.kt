@@ -1,4 +1,4 @@
-package com.bleo.simplegithubserachapplication.main.model
+package com.bleo.simplegithubserachapplication.model
 
 import com.google.gson.annotations.SerializedName
 import java.util.*

@@ -1,17 +1,17 @@
-package com.bleo.simplegithubserachapplication.main.network
+package com.bleo.simplegithubserachapplication.network
 
-import com.bleo.simplegithubserachapplication.main.model.GithubRepositoryModel
+import com.bleo.simplegithubserachapplication.model.GithubRepositoryModel
 import io.reactivex.rxjava3.core.Single
 
-class MainRepository {
-    private val api = MainService.githubApi
+class TempRepository {
+    private val api = TempService.githubApi
 
     fun searchGithubRepos(query: String): Single<List<GithubRepositoryModel>> =
         api.searchRepos(query)
             .map {
                 it.asJsonObject.getAsJsonArray("items")
                     .map { repo ->
-                        MainService.gson.fromJson(repo, GithubRepositoryModel::class.java)!!
+                        TempService.gson.fromJson(repo, GithubRepositoryModel::class.java)!!
                     }
             }
 }

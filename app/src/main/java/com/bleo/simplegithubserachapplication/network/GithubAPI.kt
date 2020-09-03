@@ -1,4 +1,4 @@
-package com.bleo.simplegithubserachapplication.main.network
+package com.bleo.simplegithubserachapplication.network
 
 import com.google.gson.JsonElement
 import io.reactivex.rxjava3.core.Single
